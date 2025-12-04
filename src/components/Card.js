@@ -9,10 +9,11 @@ export function Card(title = "", content = "", data = null) {
   const humidity = data && data.main ? `${data.main.humidity}%` : "";
   const wind = data && data.wind ? `${data.wind.speed} m/s` : "";
   // If API data includes an icon code, use OpenWeather's icon set (no local assets required)
+  const base = import.meta.env.BASE_URL || "/";
   const iconUrl =
     data && data.weather && data.weather[0] && data.weather[0].icon
       ? `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-      : "/src/assets/icons/sun.svg";
+      : `${base}icons/sun.svg`;
 
   return `
     <div id="weatherCard" class="${visibility} bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg w-full max-w-md text-center fade-in transition-colors duration-500">

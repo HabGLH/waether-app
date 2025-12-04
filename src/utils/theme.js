@@ -8,9 +8,10 @@ export function initThemeToggle(
 
   function updateThemeIcon() {
     if (!themeIcon) return;
+    const base = import.meta.env.BASE_URL || "/";
     themeIcon.src = document.documentElement.classList.contains("dark")
-      ? "/src/assets/icons/moon.svg"
-      : "/src/assets/icons/sun.svg";
+      ? `${base}icons/moon.svg`
+      : `${base}icons/sun.svg`;
   }
 
   // Determine initial theme:
